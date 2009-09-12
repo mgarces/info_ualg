@@ -1,33 +1,20 @@
-This is a quick README file for the
-InfoUAlg project.
+This is a quick README file for the InfoUAlg project.
 
-This project aims to provide tools to retrieve 
-all kinds of information from Algarve’s 
-University (UAlg).
-It’s a python learning personal project, which 
-will help me in the difficult task to learn how to code.
+This project aims to provide tools to retrieve all kinds of information from Algarve’s University (UAlg).
 
-For now, to run this script, these
-are the necessary steps:
+It’s a python learning personal project, which will help me in the difficult task to learn how to code
 
-->download the info_ualg.py and the 
-input folder and it's contents
--> run info_ualg
--> at the command line, insert your question to 
-the script:
+For now, to run this script, these are the necessary steps:
+
+->download the info_ualg.py and the input folder and it's contents
+-> run info_ualg.py
+-> at the command line, insert your question to the script:
 
 <service> <options> <data>
 
-For now, the only service is "cantina", you
-can choose between "almoço" and "jantar" for
-the options, and the dates you are free
-to use anything (for the moment I only have 
-Semptember info). Dates come in the form of
-DD-MM-YYYY
+For now, the only service is "cantina", you can choose between "almoço" and "jantar" for the options, and the dates you are free to use anything (for the
+moment I only have Semptember info). Dates come in the form of DD-MM-YYYY.
 
-This project only accepts the portuguese 
-input, and the output is also in portuguese.
+This project only accepts the portuguese input, and the output is also in portuguese.
 
-Any suggestion please mail me:
-	marco  at  garces  dot cc  
-	
+Any suggestion please mail me: marco at garces dot cc
