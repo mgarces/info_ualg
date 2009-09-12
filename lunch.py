@@ -6,9 +6,9 @@ import sys, os
 
 def open_menu(choice):
 	if choice == 'almoço':
-		file = 'lunch.txt'
+		file = 'input/lunch.txt'
 	elif choice == 'jantar':
-		file = 'dinner.txt'
+		file = 'input/dinner.txt'
 	else:
 		print 'escolha não definida/encontrada\n'
 		sys.exit()
@@ -61,4 +61,3 @@ choice = raw_input("deseja saber o menu do almoço ou do jantar? \n")
 date = raw_input("qual o dia do menu que quer?(de 1-09-2009 a 30-09-2009) \n")
 
 print get_meal(choice, date)
-os.system('clear')
