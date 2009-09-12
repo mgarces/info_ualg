@@ -24,7 +24,7 @@ def open_menu(choice):
 		menu.append(str(item).strip())
 	return menu
  
- 
+
 #find and output desired menu
 def get_meal(choice, date):
 	
@@ -46,9 +46,13 @@ def get_meal(choice, date):
 	else:
 		return 'Menu não se encontra disponível\n para este dia \n'
  
- 
- 
+#user input is the string the user enters 
 user_input = raw_input().split()
-choice = user_input[0]
-date = user_input[1]
+#at the moment this is not implemented, ignore for now
+service = user_input[0]
+#at this moment, "choice" is what type of menu the user wants (jantar ou almoço)
+choice = user_input[1]
+#date is self explanatory
+date = user_input[2]
+
 print get_meal(choice, date)
