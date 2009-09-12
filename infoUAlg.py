@@ -2,9 +2,9 @@
 # -*- coding: utf-8 -*-
 #Marco Garcês - marco at garces.cc
  
-#open txt and parse it to a list (dinner or lunch); returns the menu, clean without \n
 import sys, os
- 
+
+#open txt and parse it to a list (dinner or lunch); returns the menu, clean without \n
 def open_menu(choice):
 	if choice == 'almoço':
 		file = './input/lunch.txt'

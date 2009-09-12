@@ -22,7 +22,8 @@ For now, the only service is "cantina", you
 can choose between "almoço" and "jantar" for
 the options, and the dates you are free
 to use anything (for the moment I only have 
-Semptember info).
+Semptember info). Dates come in the form of
+DD-MM-YYYY
 
 This project only accepts the portuguese 
 input, and the output is also in portuguese.
