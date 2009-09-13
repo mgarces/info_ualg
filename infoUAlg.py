@@ -2,14 +2,14 @@
 # -*- coding: utf-8 -*-
 #Marco Garcês - marco at garces.cc
  
-import sys, os
+import sys, os, twitter, settings
 
 #open txt and parse it to a list (dinner or lunch); returns the menu, clean without \n
 def open_menu(choice):
 	if choice == 'almoço':
-		file = './input/lunch.txt'
+		file = settings.LUNCH_FILE
 	elif choice == 'jantar':
-		file = './input/dinner.txt'
+		file = settings.DINNER_FILE
 	else:
 		print 'escolha não definida/encontrada\n'
 		sys.exit()
@@ -45,7 +45,9 @@ def get_meal(choice, date):
  
 	else:
 		return 'Menu não se encontra disponível\n para este dia \n'
- 
+
+# def get_twiiter_dm()
+
 #user input is the string the user enters 
 user_input = raw_input().split()
 #at the moment this is not implemented, ignore for now
