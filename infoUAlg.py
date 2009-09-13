@@ -58,7 +58,7 @@ def get_twiiter_dm():
 	del_twitter_dm(dm_id)
 
 def del_twitter_dm(dm_id):
-	# api = twitter.Api(username=settings.TWITTER_USER,passwd=settings.TWITTER_PASSWD)
+	# api = twitter.Api(username=settings.TWITTER_USER,passwd=settings.TWITTER_PASSWD) testing this
 	api.api.DestroyDirectMessage(id=dm_id)
 	
 	
