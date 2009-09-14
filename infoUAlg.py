@@ -1,8 +1,9 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
+
 #Marco Garcês - marco at garces.cc
  
-import sys,os,twitter,settings
+import sys,os,twitter_io,settings
 #twitter api provided by http://code.google.com/p/python-twitter/
 
 #open txt and parse it to a list (dinner or lunch); returns the menu, clean without \n
@@ -46,24 +47,10 @@ def get_meal(choice, date):
  
 	else:
 		return 'Menu não se encontra disponível\n para este dia \n'
-
-def del_twitter_dm(dm_id):
-	# api = twitter.Api(username=settings.TWITTER_USER,passwd=settings.TWITTER_PASSWD) testing this
-	api.DestroyDirectMessage(id=dm_id)
-
-def get_twitter_dm():
-	api = twitter.Api(username=settings.TWITTER_USER,password=settings.TWITTER_PASSWD)
-	dm_messages = api.GetDirectMessages()
-	dm_input = dm_messages[0].text #string to use in get_meal()
-	
- 	return dm_input #to be used in get_meal and open_menu
-	
-	dm_id = dm_messages[0].id #id number to delete DM after reply
-	dm_user = dm_messages[0].sender_screen_name #twitter user to reply answer
-	del_twitter_dm(dm_id)
+ 	
 	
 #USER INPUT IS the string the user enters 
-user_input = get_twitter_dm().split()
+user_input = twitter_io.get_twitter_dm().split()
 
 #at the moment this is not implemented, ignore for now
 service = user_input[0].encode("utf-8")
