@@ -37,21 +37,23 @@ def get_meal(choice, date):
 		if choice == 'almoço':
 			menu_day = menu[n:n+6]
 			menu_day.insert(0, choice)
-			return '\n Menu %s %s: sopa de %s, %s, %s, %s\n Sobremesa: %s\n' \
+			answer = 'Menu %s %s: sopa de %s, %s, %s, %s. Sobremesa: %s' \
 			%(menu_day[0], menu_day[1], menu_day[2], menu_day[3], menu_day[4], menu_day[6], menu_day[5])
+			return answer
 		else:
 			menu_day = menu[n:n+5]
 			menu_day.insert(0, choice)
-			return '\n Menu %s %s: sopa de %s, %s, %s\n Sobremesa: %s\n' \
+			answer = 'Menu %s %s: sopa de %s, %s, %s. Sobremesa: %s' \
 			%(menu_day[0], menu_day[1], menu_day[2], menu_day[3], menu_day[4], menu_day[5])
+			return answer
  
 	else:
 		return 'Menu não se encontra disponível\n para este dia \n'
  	
 	
 #USER INPUT IS the string the user enters 
-user_input = twitter_io.get_twitter_dm().split()
-
+dm_return = twitter_io.get_twitter_dm()
+user_input = dm_return[1].split()
 #at the moment this is not implemented, ignore for now
 service = user_input[0].encode("utf-8")
 #at this moment, "choice" is what type of menu the user wants (jantar ou almoço)
@@ -59,4 +61,9 @@ choice = user_input[1].encode("utf-8")
 #date is self explanatory
 date = user_input[2].encode("utf-8")
 
-print get_meal(choice, date)
+user = dm_return[0]
+output = get_meal(choice, date).decode("utf-8")
+
+twitter_io.send_twitter_dm(user,output)
+
+print output
