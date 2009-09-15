@@ -51,31 +51,10 @@ def get_meal(choice, date):
 		return 'Menu não se encontra disponível\n para este dia \n'
  	
 	
-#USER INPUT IS the string the user enters 
-
-# dm_return = twitter_io.get_twitter_dm()
-# while len(dm_return) != 0:
-# 	user_input = dm_return[1].split()
-# 	#at the moment this is not implemented, ignore for now
-# 	service = user_input[0].encode("utf-8")
-# 	#at this moment, "choice" is what type of menu the user wants (jantar ou almoço)
-# 	choice = user_input[1].encode("utf-8")
-# 	#date is self explanatory
-# 	date = user_input[2].encode("utf-8")
-# 	
-# 	user = dm_return[0]
-# 	output = get_meal(choice, date).decode("utf-8")
-# 	dm_id = dm_return[2]
-# 	
-# 	print user
-# 	print output
-# 	print dm_id
-# 	
-# 	#twitter_io.send_twitter_dm(user,output)
-# 	twitter_io.del_twitter_dm(dm_id)
-
+#this creates the api object, and the dm_messages list
 api = twitter.Api(username=settings.TWITTER_USER,password=settings.TWITTER_PASSWD)
 dm_messages = api.GetDirectMessages()
+
 for t in dm_messages:
 	user = t.sender_screen_name
 	user_input = t.text.split()
