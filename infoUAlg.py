@@ -61,17 +61,28 @@ def get_meal(choice, date):
 api = twitter.Api(username=settings.TWITTER_USER,password=settings.TWITTER_PASSWD)
 dm_messages = api.GetDirectMessages()
 
-for t in dm_messages:
-	user = t.sender_screen_name
-	user_input = t.text.split()
+if dm_messages == []:
+	sys.exit()
+else:
+	for t in dm_messages:
+		user_input = t.text.split()
 	
-	service = user_input[0].encode("utf-8")
-	choice = user_input[1].encode("utf-8")
-	date = user_input[2].encode("utf-8")
+		user = t.sender_screen_name
+		service = user_input[0].encode("utf-8")
+		dm_id = t.id
+		
+
+		if service == "help":
+			answer = u"<serviço> <opção> <data> , EX: cantina almoço 25-09-2009"
+			api.PostDirectMessage(user,answer)
+			api.DestroyDirectMessage(dm_id)
+		
+		else:
+			choice = user_input[1].encode("utf-8")
+			date = user_input[2].encode("utf-8")
+			
+			
+			output = get_meal(choice, date).decode("utf-8")
 	
-	output = get_meal(choice, date).decode("utf-8")
-	
-	dm_id = t.id
-	
-	api.PostDirectMessage(user,output)
-	api.DestroyDirectMessage(dm_id)
+			api.PostDirectMessage(user,output)
+			api.DestroyDirectMessage(dm_id)
