@@ -10,21 +10,27 @@ import sys,os,twitter,settings
 def open_menu(choice):
 	if choice == 'almoço':
 		file = settings.LUNCH_FILE
+		f = open(file, 'r')
+		linhas = f.readlines()
+		f.close()
+		#clean lines from \n
+		menu = []
+		for item in linhas:
+			menu.append(str(item).strip())
+		return menu
 	elif choice == 'jantar':
 		file = settings.DINNER_FILE
+		f = open(file, 'r')
+		linhas = f.readlines()
+		f.close()
+		#clean lines from \n
+		menu = []
+		for item in linhas:
+			menu.append(str(item).strip())
+		return menu
 	else:
-		print 'escolha não definida/encontrada\n'
-		sys.exit()
-	
-	f = open(file, 'r')
-	linhas = f.readlines()
-	f.close()
-	#clean lines from \n
-	
-	menu = []
-	for item in linhas:
-		menu.append(str(item).strip())
-	return menu
+		menu = 'escolha não definida/encontrada\n'
+		return menu
  
 
 #find and output desired menu
