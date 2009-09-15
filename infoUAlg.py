@@ -1,7 +1,7 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
-#Marco Garcês - marco at garces.cc
+__author__ = "Marco Garcês - marco at garces dot cc"
  
 import sys,os,twitter,settings
 #twitter api provided by http://code.google.com/p/python-twitter/
