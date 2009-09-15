@@ -29,34 +29,34 @@ def open_menu(choice):
 			menu.append(str(item).strip())
 		return menu
 	else:
-		menu = 'escolha não definida/encontrada\n'
+		menu = []
 		return menu
  
-
 #find and output desired menu
 def get_meal(choice, date):
-	
 	menu = open_menu(choice)
-	
-	if date in menu:
+	if menu == []:
+		return 'escolha não definida/encontrada\n'
+	elif date in menu:
 		n = menu.index(date)
 		if choice == 'almoço':
 			menu_day = menu[n:n+6]
 			menu_day.insert(0, choice)
-			answer = 'Menu %s %s: sopa de %s, %s, %s, %s. Sobremesa: %s' \
+			
+			return 'Menu %s %s: sopa de %s, %s, %s, %s. Sobremesa: %s' \
 			%(menu_day[0], menu_day[1], menu_day[2], menu_day[3], menu_day[4], menu_day[6], menu_day[5])
-			return answer
+			
 		else:
 			menu_day = menu[n:n+5]
 			menu_day.insert(0, choice)
-			answer = 'Menu %s %s: sopa de %s, %s, %s. Sobremesa: %s' \
+			
+			return 'Menu %s %s: sopa de %s, %s, %s. Sobremesa: %s' \
 			%(menu_day[0], menu_day[1], menu_day[2], menu_day[3], menu_day[4], menu_day[5])
-			return answer
- 
+			
+			
 	else:
 		return 'Menu não se encontra disponível\n para este dia \n'
  	
-	
 #this creates the api object, and the dm_messages list
 api = twitter.Api(username=settings.TWITTER_USER,password=settings.TWITTER_PASSWD)
 dm_messages = api.GetDirectMessages()
