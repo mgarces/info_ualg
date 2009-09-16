@@ -65,7 +65,11 @@ if dm_messages == []:
 	sys.exit()
 else:
 	for t in dm_messages:
-		user_input = t.text.split()
+		user_dirty_input = t.text.split()
+		user_input = []
+		for i in user_dirty_input:
+			user_input.append(i.lower())
+			
 	
 		user = t.sender_screen_name
 		service = user_input[0].encode("utf-8")
